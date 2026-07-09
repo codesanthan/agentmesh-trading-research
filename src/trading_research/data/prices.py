@@ -64,7 +64,8 @@ class PriceSnapshot:
         else:
             vol_band = "low"
         lines = [
-            f"Annualized volatility of {vol:.1f}% is in the {vol_band} band for a single-name equity.",
+            f"Annualized volatility of {vol:.1f}% is in the {vol_band} band "
+            f"for a single-name equity.",
         ]
         if self.fifty_two_week_high and self.last_close:
             drawdown = (self.last_close - self.fifty_two_week_high) / self.fifty_two_week_high * 100

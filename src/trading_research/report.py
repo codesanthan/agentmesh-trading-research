@@ -123,7 +123,10 @@ def build_workflow_spec(inputs: ResearchInputs, lead_provider: Provider | None =
                 "id": "risk",
                 "agent": "risk_analyst",
                 "depends_on": ["market_data"],
-                "prompt": f"Assess the risk factors for {inputs.ticker}, given the technical picture.",
+                "prompt": (
+                    f"Assess the risk factors for {inputs.ticker}, given the "
+                    f"technical picture."
+                ),
             },
         ],
     }

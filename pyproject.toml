@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trading-research"
+version = "0.1.0"
+description = "A real-data ticker research report generator built on AgentMesh"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Santhan" }]
+requires-python = ">=3.10"
+dependencies = [
+    "agentmesh @ git+https://github.com/codesanthan/agentmesh.git",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/codesanthan/agentmesh-trading-research"
+Issues = "https://github.com/codesanthan/agentmesh-trading-research/issues"
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.34.0"]
+openai = ["openai>=1.40.0"]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6.0",
+]
+
+[project.scripts]
+trading-research = "trading_research.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
